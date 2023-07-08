@@ -9,6 +9,7 @@ def test_zad2():
     """
     assert 2 == 2
 
+@pytest.mark.first
 def test_zad3():
     assert 3 == 2
 

@@ -2,6 +2,9 @@ import pytest
 
 pytest_plugins = ["fizzbuzz.testing.fixtures"]
 
+def pytest_runtest_setup(item):
+    print("setting up", item)
+
 @pytest.fixture()
 def random_number_generator():
     import random
@@ -14,4 +17,3 @@ def enterexit():
     print("entering test")
     yield
     print("exiting test")
-

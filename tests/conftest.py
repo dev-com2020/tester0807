@@ -17,3 +17,5 @@ def enterexit():
     print("entering test")
     yield
     print("exiting test")
+
+# def test_fizzbuzz(random_number_generator):

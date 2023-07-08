@@ -5,6 +5,13 @@ pytest_plugins = ["src.fizzbuzz.testing.fixtures"]
 def pytest_runtest_setup(item):
     print("setting up", item)
 
+def pytest_addoption(parser):
+    parser.addoption(
+        "--upper" , action="store_true",
+        default=False,
+        help="run tests with upper case"
+    )
+
 @pytest.fixture()
 def random_number_generator():
     import random

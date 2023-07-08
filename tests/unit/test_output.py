@@ -16,7 +16,10 @@ from src.fizzbuzz import outfizz, outbuzz
 
 @pytest.fixture(params=["fizz", "buzz"])
 def expected_output(request):
-    yield getattr(src.fizzbuzz, "out{}".format(request.param)), request.param
+    text = request.param
+    if request.config.getoption("--upper"):
+        text = text.upper()
+    yield getattr(src.fizzbuzz, "out{}".format(request.param)), text
 
 def test_output(expected_output,capsys):
     func,expected = expected_output
